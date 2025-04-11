@@ -1,16 +1,16 @@
-interface BlogPageProps {
-  params: {
-    slug: string;
-  };
-}
+import { Metadata } from 'next';
 
-export async function generateMetadata({ params }: BlogPageProps) {
+type Props = {
+  params: { slug: string };
+};
+
+export function generateMetadata({ params }: Props): Metadata {
   return {
     title: `Post: ${params.slug}`,
   };
 }
 
-export default function Page({ params }: BlogPageProps) {
+export default function Page({ params }: Props) {
   return (
     <>
       <h1>Slug: {params.slug}</h1>
