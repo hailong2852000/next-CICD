@@ -1,21 +1,14 @@
-import { Metadata } from 'next';
-
-type Props = {
-  params: { slug: string };
+type Params = {
+  params: {
+    slug: string;
+  };
 };
 
-export function generateMetadata({ params }: Props): Metadata {
-  return {
-    title: `Post: ${params.slug}`,
-  };
+export async function generateMetadata({ params }: Params) {
+  return { title: `Post: ${params.slug}` };
 }
 
-export default function Page({ params }: Props) {
-  return (
-    <>
-      <h1>Slug: {params.slug}</h1>
-      <p>HoleTex</p>
-      <p>Welcome to HCM</p>
-    </>
-  );
+export default function Page({ params }: Params) {
+  return <><h1>Slug: {params.slug}</h1><p>HoleTex</p>
+  <p>Welcome to HN</p></>
 }
